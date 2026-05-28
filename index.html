@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shimi Zhou — Information Systems, UNCG</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --sage-50:#f2f6f0;--sage-100:#e0ead9;--sage-200:#c4d8ba;--sage-300:#9dbd90;
+  --sage-400:#6d9e62;--sage-500:#4a7a40;--sage-600:#375e2f;--sage-700:#264520;
+  --warm-50:#faf8f4;--warm-100:#f2ede4;
+  --stone:#8a8478;--stone2:#6b6560;
+  --ink:#1e2b1a;--ink2:#354a2f;--ink3:#5a6e52;
+  --white:#ffffff;
+  --border:#d4e0cc;--border2:#b8ccac;
+  --serif:'IBM Plex Serif',Georgia,serif;
+  --sans:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+  --r:10px;--r-sm:6px;--r-lg:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--sage-50);line-height:1.65}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--sage-50)}
+::-webkit-scrollbar-thumb{background:var(--sage-200);border-radius:3px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.96);border-bottom:1px solid var(--border);backdrop-filter:blur(10px)}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:62px}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-avatar{width:34px;height:34px;border-radius:50%;background:var(--sage-400);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:0.8rem;color:#fff;font-weight:600;flex-shrink:0}
+.nav-name{font-family:var(--serif);font-size:0.95rem;font-weight:600;color:var(--ink)}
+.nav-links{display:flex;gap:0}
+.nav-links a{font-family:var(--sans);color:var(--ink3);text-decoration:none;font-size:0.82rem;font-weight:500;padding:8px 13px;border-radius:var(--r-sm);transition:all 0.18s}
+.nav-links a:hover{color:var(--sage-600);background:var(--sage-50)}
+.nav-cta{background:var(--sage-500);color:#fff !important;font-family:var(--sans);font-size:0.8rem;font-weight:500;padding:8px 18px;border-radius:20px;text-decoration:none;transition:background 0.2s;margin-left:6px}
+.nav-cta:hover{background:var(--sage-600) !important}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:62px;background:var(--white)}
+.hero-inner{max-width:1120px;margin:0 auto;padding:5rem 2rem 4rem;display:grid;grid-template-columns:1fr 400px;gap:5rem;align-items:center;width:100%}
+.hero-status{display:inline-flex;align-items:center;gap:8px;background:var(--sage-50);border:1px solid var(--border);border-radius:20px;padding:6px 14px;margin-bottom:2rem}
+.hero-status-dot{width:7px;height:7px;border-radius:50%;background:var(--sage-400);animation:breathe 2.5s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.8)}}
+.hero-status span{font-family:var(--mono);font-size:0.72rem;color:var(--sage-600);font-weight:500}
+h1.hero-name{font-family:var(--serif);font-size:clamp(2.8rem,5vw,4rem);font-weight:300;color:var(--ink);line-height:1.1;letter-spacing:-0.01em}
+h1.hero-name strong{font-weight:600;color:var(--sage-600)}
+h1.hero-name em{font-style:italic;font-weight:300}
+.hero-role{font-family:var(--serif);font-size:1.05rem;font-weight:300;font-style:italic;color:var(--ink3);margin:1rem 0 0.25rem}
+.hero-uni{font-family:var(--sans);font-size:0.85rem;color:var(--stone);font-weight:400;margin-bottom:1.75rem}
+.hero-bio{font-family:var(--serif);font-size:1.05rem;font-weight:300;color:var(--ink2);line-height:1.85;max-width:560px;margin-bottom:2.25rem}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2.25rem}
+.htag{font-family:var(--mono);font-size:0.68rem;padding:5px 12px;border-radius:20px;background:var(--sage-50);border:1px solid var(--border);color:var(--sage-600);font-weight:500}
+.hero-actions{display:flex;gap:0.85rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--sans);font-size:0.88rem;font-weight:500;text-decoration:none;padding:11px 22px;border-radius:var(--r);transition:all 0.2s;cursor:pointer;border:none}
+.btn-primary{background:var(--sage-500);color:#fff}
+.btn-primary:hover{background:var(--sage-600);transform:translateY(-1px)}
+.btn-secondary{background:var(--white);color:var(--ink2);border:1.5px solid var(--border2)}
+.btn-secondary:hover{border-color:var(--sage-400);color:var(--sage-600);background:var(--sage-50)}
+.hero-right{display:flex;flex-direction:column;gap:1.5rem}
+.photo-card{background:var(--sage-50);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+.photo-area{height:300px;background:linear-gradient(160deg,var(--sage-100),var(--sage-50));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem}
+.photo-initials{width:96px;height:96px;border-radius:50%;background:var(--sage-400);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:2rem;font-weight:600;color:#fff}
+.photo-hint{font-family:var(--mono);font-size:0.65rem;color:var(--stone);text-align:center;line-height:1.6}
+.photo-footer{padding:1.1rem 1.25rem;background:var(--white);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.photo-footer-name{font-family:var(--serif);font-size:0.9rem;font-weight:600;color:var(--ink)}
+.photo-footer-dept{font-family:var(--sans);font-size:0.74rem;color:var(--ink3)}
+.photo-footer-badge{background:var(--sage-100);color:var(--sage-700);font-family:var(--mono);font-size:0.62rem;font-weight:500;padding:3px 9px;border-radius:20px}
+.quick-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.qstat{background:var(--white);padding:1rem 0.75rem;text-align:center}
+.qstat-num{font-family:var(--serif);font-size:1.6rem;font-weight:600;color:var(--sage-600);line-height:1}
+.qstat-label{font-family:var(--sans);font-size:0.62rem;color:var(--stone);margin-top:3px;font-weight:500}
+.profile-links{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.plink{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--white);border:1px solid var(--border);border-radius:var(--r-sm);font-family:var(--sans);font-size:0.78rem;color:var(--ink2);text-decoration:none;font-weight:500;transition:all 0.18s}
+.plink:hover{border-color:var(--sage-300);color:var(--sage-600);background:var(--sage-50)}
+.plink-icon{width:22px;height:22px;border-radius:5px;background:var(--sage-100);display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:600;color:var(--sage-700);flex-shrink:0;font-family:var(--mono)}
+
+/* SECTIONS */
+section{padding:5.5rem 0}
+.container{max-width:1120px;margin:0 auto;padding:0 2rem}
+.section-label{font-family:var(--mono);font-size:0.68rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-500);margin-bottom:0.5rem}
+h2.section-title{font-family:var(--serif);font-size:clamp(1.9rem,3vw,2.5rem);font-weight:300;color:var(--ink);margin-bottom:0.4rem;line-height:1.2}
+h2.section-title strong{font-weight:600}
+.section-bar{width:36px;height:3px;background:var(--sage-300);border-radius:2px;margin:0.75rem 0 2.5rem}
+
+/* ABOUT */
+#about{background:var(--sage-50)}
+.about-wrap{display:grid;grid-template-columns:1fr 310px;gap:4.5rem;align-items:start}
+.about-body p{font-family:var(--serif);font-size:1.05rem;font-weight:300;color:var(--ink2);line-height:1.9;margin-bottom:1.15rem}
+.about-quote{margin:2rem 0;padding:1.5rem;background:var(--white);border-radius:var(--r);border-left:4px solid var(--sage-300)}
+.about-quote p{font-family:var(--serif);font-size:1.1rem;font-style:italic;font-weight:300;color:var(--ink2);line-height:1.65;margin:0}
+.interests-title{font-family:var(--mono);font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-500);margin:2rem 0 1rem;display:block}
+.interest-row{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid var(--border)}
+.interest-row:last-child{border-bottom:none}
+.i-pip{width:9px;height:9px;border-radius:50%;background:var(--sage-300);flex-shrink:0;margin-top:5px}
+.i-main{font-family:var(--sans);font-size:0.9rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.i-sub{font-family:var(--sans);font-size:0.81rem;color:var(--ink3)}
+.about-sidebar{}
+.sidebar-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.4rem;margin-bottom:1.1rem}
+.sidebar-card-title{font-family:var(--mono);font-size:0.63rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-500);margin-bottom:1rem}
+.edu-item{padding:0.85rem 0;border-bottom:1px solid var(--border)}
+.edu-item:last-child{border-bottom:none;padding-bottom:0}
+.edu-degree{font-family:var(--serif);font-size:0.88rem;font-weight:600;color:var(--ink);line-height:1.3}
+.edu-school{font-family:var(--serif);font-size:0.81rem;font-style:italic;color:var(--sage-500);margin:2px 0}
+.edu-year{font-family:var(--mono);font-size:0.68rem;color:var(--stone)}
+.affil-item{font-family:var(--sans);font-size:0.81rem;color:var(--ink2);padding:5px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.affil-item:last-child{border-bottom:none;padding-bottom:0}
+.affil-item::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--sage-300);flex-shrink:0}
+
+/* RESEARCH */
+#research{background:var(--white)}
+.research-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.rc{background:var(--sage-50);border:1px solid var(--border);border-radius:var(--r);padding:2rem;transition:all 0.22s;position:relative;overflow:hidden}
+.rc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--sage-200);transition:background 0.22s}
+.rc:hover{border-color:var(--sage-300);box-shadow:0 6px 24px rgba(74,122,64,0.08)}
+.rc:hover::after{background:var(--sage-400)}
+.rc-icon{width:42px;height:42px;border-radius:10px;background:var(--white);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1.1rem}
+.rc h3{font-family:var(--serif);font-size:1.08rem;font-weight:600;color:var(--ink);margin-bottom:0.6rem;line-height:1.3}
+.rc p{font-family:var(--sans);font-size:0.86rem;color:var(--ink2);line-height:1.72;margin-bottom:1.1rem}
+.rc-tags{display:flex;flex-wrap:wrap;gap:6px}
+.rctag{font-family:var(--mono);font-size:0.63rem;padding:3px 9px;border-radius:20px;background:var(--white);border:1px solid var(--border2);color:var(--sage-600)}
+
+/* PUBLICATIONS */
+#publications{background:var(--sage-50)}
+.pub-section-title{font-family:var(--mono);font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-500);margin:2.5rem 0 1rem;display:flex;align-items:center;gap:10px}
+.pub-section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.pub-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.4rem 1.5rem;margin-bottom:0.85rem;transition:border-color 0.18s}
+.pub-card:hover{border-color:var(--sage-300)}
+.pbadge{font-family:var(--mono);font-size:0.62rem;font-weight:500;padding:3px 8px;border-radius:4px}
+.pb-top{background:#edf7eb;color:#2a6e20}
+.pb-award{background:#fdf8e8;color:#7a5c10}
+.pb-review{background:#eef4fb;color:#2a5080}
+.pb-working{background:var(--sage-50);color:var(--sage-600);border:1px solid var(--border)}
+.pub-card{display:flex;gap:1rem;align-items:flex-start}
+.pub-num{font-family:var(--mono);font-size:0.8rem;font-weight:500;color:var(--sage-400);min-width:18px;padding-top:2px;flex-shrink:0}
+.pub-body{flex:1}
+.pub-citation{font-family:var(--serif);font-size:0.95rem;font-weight:300;color:var(--ink2);line-height:1.75;margin-bottom:0.65rem}
+.pub-citation strong{font-weight:600;color:var(--ink);font-style:normal}
+.pub-citation em{font-style:italic}
+.pub-doi{color:var(--sage-500);text-decoration:none;font-size:0.82rem;word-break:break-all}
+.pub-doi:hover{text-decoration:underline}
+.pub-recognition{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.pub-recog-label{font-family:var(--mono);font-size:0.62rem;color:var(--stone);font-weight:500;margin-right:2px}
+.pub-conference-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem}
+.pub-conf-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem 1.25rem;transition:border-color 0.18s}
+.pub-conf-card:hover{border-color:var(--sage-300)}
+.pub-conf-title{font-family:var(--serif);font-size:0.88rem;font-weight:600;color:var(--ink);line-height:1.35;margin-bottom:4px}
+.pub-conf-venue{font-family:var(--sans);font-size:0.75rem;color:var(--stone)}
+.pub-conf-badge{font-family:var(--mono);font-size:0.6rem;font-weight:500;padding:2px 7px;border-radius:4px;background:var(--sage-50);border:1px solid var(--border);color:var(--sage-600);display:inline-block;margin-top:6px}
+
+/* TEACHING */
+#teaching{background:var(--white)}
+.courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.cc{background:var(--sage-50);border:1px solid var(--border);border-radius:var(--r);padding:1.6rem;transition:all 0.2s}
+.cc:hover{border-color:var(--sage-300);background:var(--white)}
+.cc-code{font-family:var(--mono);font-size:0.68rem;font-weight:500;color:var(--sage-500);margin-bottom:5px;letter-spacing:0.04em}
+.cc-name{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:3px;line-height:1.3}
+.cc-level{font-family:var(--sans);font-size:0.74rem;color:var(--stone);font-style:italic;margin-bottom:1rem}
+.cc-desc{font-family:var(--sans);font-size:0.83rem;color:var(--ink2);line-height:1.65;margin-bottom:1.1rem}
+.cc-foot{display:flex;align-items:center;justify-content:space-between;padding-top:0.85rem;border-top:1px solid var(--border)}
+.cc-mode{font-family:var(--mono);font-size:0.63rem;color:var(--sage-500)}
+.cc-sem{font-family:var(--mono);font-size:0.63rem;color:var(--stone)}
+
+/* CV */
+#cv{background:var(--sage-50)}
+.cv-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem}
+.cv-group{margin-bottom:2.5rem}
+.cv-group-head{font-family:var(--mono);font-size:0.63rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-500);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.cv-group-head::after{content:'';flex:1;height:1px;background:var(--border)}
+.cv-entry{padding:0.85rem 0;border-bottom:1px solid var(--border)}
+.cv-entry:last-child{border-bottom:none}
+.cv-entry-wrap{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}
+.cv-title{font-family:var(--sans);font-size:0.87rem;font-weight:600;color:var(--ink)}
+.cv-sub{font-family:var(--serif);font-size:0.81rem;font-style:italic;color:var(--sage-500);margin-top:2px}
+.cv-year{font-family:var(--mono);font-size:0.68rem;color:var(--stone);white-space:nowrap;padding-top:1px}
+.honor-item{padding:0.8rem 0;border-bottom:1px solid var(--border);font-family:var(--sans);font-size:0.84rem;color:var(--ink2);line-height:1.5;display:flex;gap:10px;align-items:flex-start}
+.honor-item:last-child{border-bottom:none}
+.honor-item::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--sage-300);flex-shrink:0;margin-top:7px}
+.cv-download{display:flex;align-items:center;justify-content:center;gap:10px;padding:1.25rem;border:1.5px dashed var(--border2);border-radius:var(--r);font-family:var(--sans);font-size:0.85rem;font-weight:500;color:var(--sage-600);text-decoration:none;margin-top:2rem;transition:all 0.2s;background:var(--white)}
+.cv-download:hover{border-color:var(--sage-400);background:var(--sage-50)}
+
+/* BLOG */
+#blog{background:var(--white)}
+.blog-grid{display:grid;grid-template-columns:3fr 2fr;gap:2rem}
+.blog-featured{background:var(--sage-50);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color 0.2s}
+.blog-featured:hover{border-color:var(--sage-300)}
+.blog-featured-img{height:180px;background:var(--sage-700);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:3rem;font-style:italic;color:var(--sage-200)}
+.blog-featured-body{padding:1.75rem}
+.blog-chip{display:inline-block;font-family:var(--mono);font-size:0.62rem;font-weight:500;padding:3px 9px;border-radius:4px;background:var(--sage-100);color:var(--sage-700);margin-bottom:0.75rem}
+.blog-featured-body h3{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--ink);margin-bottom:0.4rem;line-height:1.3}
+.blog-featured-body .bmeta{font-family:var(--mono);font-size:0.7rem;color:var(--stone);margin-bottom:0.9rem}
+.blog-featured-body p{font-family:var(--sans);font-size:0.88rem;color:var(--ink2);line-height:1.72}
+.blog-readmore{display:inline-flex;align-items:center;gap:5px;font-family:var(--sans);font-size:0.82rem;font-weight:500;color:var(--sage-600);text-decoration:none;margin-top:1rem}
+.blog-stack{display:flex;flex-direction:column;gap:1rem}
+.blog-item{background:var(--sage-50);border:1px solid var(--border);border-radius:var(--r);padding:1.25rem;transition:all 0.18s;text-decoration:none;display:block}
+.blog-item:hover{border-color:var(--sage-300);background:var(--white)}
+.blog-item h3{font-family:var(--serif);font-size:0.95rem;font-weight:600;color:var(--ink);line-height:1.4;margin-bottom:5px}
+.blog-item .bmeta{font-family:var(--mono);font-size:0.67rem;color:var(--stone)}
+
+/* CONTACT */
+#contact{background:var(--sage-700)}
+#contact .section-label{color:var(--sage-200)}
+#contact h2.section-title{color:#fff;font-weight:300}
+#contact .section-bar{background:var(--sage-400)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.contact-intro{font-family:var(--serif);font-size:1.02rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:2rem}
+.cinfo-row{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.08);align-items:flex-start}
+.cinfo-row:last-child{border-bottom:none}
+.cinfo-key{font-family:var(--mono);font-size:0.63rem;font-weight:500;color:var(--sage-300);text-transform:uppercase;letter-spacing:0.1em;min-width:80px;padding-top:1px}
+.cinfo-val{font-family:var(--sans);font-size:0.87rem;color:rgba(255,255,255,0.75);line-height:1.5}
+.cinfo-val a{color:var(--sage-200);text-decoration:none}
+.cinfo-val a:hover{text-decoration:underline}
+.social-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:4px}
+.slink{font-family:var(--sans);font-size:0.75rem;font-weight:500;color:var(--sage-200);text-decoration:none;border:1px solid rgba(255,255,255,0.18);padding:4px 11px;border-radius:20px;transition:all 0.18s}
+.slink:hover{background:rgba(255,255,255,0.1)}
+.contact-form{display:flex;flex-direction:column;gap:1.1rem}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:5px}
+.fl{font-family:var(--mono);font-size:0.62rem;font-weight:500;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em}
+.fi,.ft{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:var(--r-sm);padding:11px 14px;color:#fff;font-family:var(--sans);font-size:0.9rem;outline:none;width:100%;transition:border 0.18s}
+.fi:focus,.ft:focus{border-color:rgba(157,189,144,0.5);background:rgba(255,255,255,0.09)}
+.ft{min-height:130px;resize:vertical}
+::placeholder{color:rgba(255,255,255,0.22)}
+.fsub{background:var(--sage-400);color:#fff;border:none;border-radius:var(--r-sm);font-family:var(--sans);font-size:0.88rem;font-weight:500;padding:12px 28px;cursor:pointer;transition:background 0.2s;align-self:flex-start}
+.fsub:hover{background:var(--sage-500)}
+
+footer{background:#1c2e18;padding:2.5rem;text-align:center}
+.footer-name{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--sage-200);margin-bottom:0.5rem}
+.footer-copy{font-family:var(--mono);font-size:0.68rem;color:rgba(255,255,255,0.25)}
+
+.fade{opacity:0;transform:translateY(16px);transition:opacity 0.55s ease,transform 0.55s ease}
+.fade.in{opacity:1;transform:none}
+.d1{transition-delay:0.1s}.d2{transition-delay:0.18s}.d3{transition-delay:0.26s}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="nav-avatar">SZ</div>
+      <div class="nav-name">Shimi Zhou</div>
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#cv">CV</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-status"><div class="hero-status-dot"></div><span>Assistant Professor · UNCG</span></div>
+      <h1 class="hero-name"><strong>Shimi</strong> <em>Zhou</em></h1>
+      <div class="hero-role">Assistant Professor of Information Systems</div>
+      <div class="hero-uni">Bryan School of Business and Economics &nbsp;·&nbsp; University of North Carolina at Greensboro</div>
+      <p class="hero-bio">I explore the intersection of information technology, data science, and social inclusion — studying how technology shapes equitable participation in academia, organisations, and society. My work draws on social network analysis, statistical modelling, and machine learning to examine collaboration, knowledge production, and leadership in digital contexts.</p>
+      <div class="hero-tags">
+        <span class="htag">Gender Equity in IT</span>
+        <span class="htag">Social Network Analysis</span>
+        <span class="htag">Inclusive Smart Cities</span>
+        <span class="htag">AI &amp; Data Justice</span>
+        <span class="htag">Text Analytics</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#research" class="btn btn-primary">Explore Research →</a>
+        <a href="#publications" class="btn btn-secondary">Publications</a>
+        <a href="mailto:s_zhou2@uncg.edu" class="btn btn-secondary">Email Me</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="photo-card">
+        <div class="photo-area">
+          <div class="photo-initials">SZ</div>
+          <div class="photo-hint">Replace with your photo<br>Recommended: 600 × 700 px</div>
+        </div>
+        <div class="photo-footer">
+          <div>
+            <div class="photo-footer-name">Shimi Zhou</div>
+            <div class="photo-footer-dept">Information Systems · UNCG</div>
+          </div>
+          <div class="photo-footer-badge">Ph.D. WPI</div>
+        </div>
+      </div>
+
+      <div class="profile-links">
+        <a href="https://scholar.google.com/citations?user=-22qbhkAAAAJ&hl=en&oi=ao" target="_blank" class="plink"><span class="plink-icon">GS</span>Google Scholar</a>
+        <a href="mailto:s_zhou2@uncg.edu" class="plink"><span class="plink-icon">✉</span>s_zhou2@uncg.edu</a>
+        <a href="tel:3363344853" class="plink"><span class="plink-icon">☎</span>(336) 334-4853</a>
+        <a href="#contact" class="plink"><span class="plink-icon">→</span>Contact Form</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-label">About</div>
+    <h2 class="section-title">Background &amp; <strong>Interests</strong></h2>
+    <div class="section-bar"></div>
+    <div class="about-wrap">
+      <div>
+        <div class="about-body fade">
+          <p>I am an Assistant Professor of Information Systems at the Bryan School of Business and Economics, University of North Carolina at Greensboro (UNCG). I received my Ph.D. in Business Administration (Information Systems) from Worcester Polytechnic Institute (WPI) in May 2024, where I also earned my M.S. in Information Technology.</p>
+          <p>My research explores the intersection of information technology, data science, and social inclusion. I am particularly interested in how technology shapes equitable participation in academia, organisations, and society — and how we can design and deploy systems that are more just and inclusive.</p>
+        </div>
+        <div class="about-quote fade d1">
+          <p>"Technology does not simply mirror society — it actively constructs it. Understanding how IS shapes who gets to collaborate, lead, and belong is both a scholarly and a moral imperative."</p>
+        </div>
+        <div class="about-body fade d2">
+          <p>Before joining UNCG, I worked as an Associate Data Scientist in Advanced Analytics &amp; AI at John Hancock | Manulife in Boston, bringing an industry lens to my academic work. I was also a Research Assistant on the NSF ADVANCE ImPACT IT project, focused on increasing the participation and advancement of women in information technology.</p>
+        </div>
+        <div class="fade d2">
+          <span class="interests-title">Research Interests</span>
+          <div class="interest-row"><div class="i-pip"></div><div><div class="i-main">Inclusive Smart Cities</div><div class="i-sub">How digital city infrastructure can serve all populations, including people with disabilities</div></div></div>
+          <div class="interest-row"><div class="i-pip"></div><div><div class="i-main">Gender Equity in IT</div><div class="i-sub">Collaboration patterns, authorship, and network position of women IS scholars</div></div></div>
+          <div class="interest-row"><div class="i-pip"></div><div><div class="i-main">Social Network Analysis</div><div class="i-sub">Mapping knowledge production, collaboration, and influence in academic and professional networks</div></div></div>
+          <div class="interest-row"><div class="i-pip"></div><div><div class="i-main">Responsible AI &amp; Data Justice</div><div class="i-sub">Thought leadership in AI, AI-proficiency in organisations, and inclusive technology design</div></div></div>
+          <div class="interest-row"><div class="i-pip"></div><div><div class="i-main">Text Analytics &amp; Machine Learning</div><div class="i-sub">Topic modelling, sentiment analysis, and NLP applied to IS research questions</div></div></div>
+        </div>
+      </div>
+      <div class="about-sidebar fade d1">
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Education</div>
+          <div class="edu-item">
+            <div class="edu-degree">Ph.D. in Business Administration</div>
+            <div class="edu-school">Concentration: Information Systems</div>
+            <div class="edu-school">Worcester Polytechnic Institute</div>
+            <div class="edu-year">May 2024</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">M.S. in Information Technology</div>
+            <div class="edu-school">Worcester Polytechnic Institute</div>
+            <div class="edu-year">May 2019</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">B.A. in Information Management &amp; IS</div>
+            <div class="edu-school">Nanjing Forestry University</div>
+            <div class="edu-year">June 2016</div>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Affiliations</div>
+          <div class="affil-item">Beta Gamma Sigma (2026–present)</div>
+          <div class="affil-item">Decision Science Institute (DSI)</div>
+          <div class="affil-item">Association for Information Systems (AIS)</div>
+          <div class="affil-item">AIS Women's Network (AISWN)</div>
+          <div class="affil-item">UNCG Student Relations Committee</div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Contact</div>
+          <div style="font-family:var(--sans);font-size:0.82rem;color:var(--ink2);line-height:1.8">
+            <div>✉ <a href="mailto:s_zhou2@uncg.edu" style="color:var(--sage-600);text-decoration:none">s_zhou2@uncg.edu</a></div>
+            <div>☎ (336) 334-4853</div>
+            <div style="margin-top:4px">🏛 Bryan School of Business &amp; Economics</div>
+            <div>Greensboro, NC 27412</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="container">
+    <div class="section-label">Research</div>
+    <h2 class="section-title">Focus Areas &amp; <strong>Projects</strong></h2>
+    <div class="section-bar"></div>
+    <div class="research-grid">
+      <div class="rc fade">
+        <div class="rc-icon">🏙️</div>
+        <h3>Inclusive &amp; AI-Ready Smart Cities</h3>
+        <p>Examining how smart city technologies can equitably serve all residents — including people with disabilities — and how municipalities can build genuine AI readiness. Work spans a systematic literature review (EJIS) and a maturity model &amp; assessment toolkit to help city managers move toward responsible AI deployment in urban governance.</p>
+        <div class="rc-tags"><span class="rctag">Smart Cities</span><span class="rctag">Accessibility</span><span class="rctag">AI Maturity</span><span class="rctag">Value Co-creation</span><span class="rctag">Governance</span></div>
+      </div>
+      <div class="rc fade d1">
+        <div class="rc-icon">⚖️</div>
+        <h3>Gender Equity in Academic Networks</h3>
+        <p>Using social network analysis to study collaboration patterns, homophily, and research impact among IS scholars. Work examines how gender shapes co-authorship, institutional ties, and career outcomes in the IS academic community.</p>
+        <div class="rc-tags"><span class="rctag">Gender Equity</span><span class="rctag">Social Network Analysis</span><span class="rctag">Homophily</span><span class="rctag">Bibliometrics</span></div>
+      </div>
+      <div class="rc fade d1">
+        <div class="rc-icon">🤖</div>
+        <h3>AI Thought Leadership &amp; Decision-Making</h3>
+        <p>Analysing leadership discourse around generative AI using text analytics and NLP. Current work examines how executives and academics frame AI decision-making, and what this reveals about power, authority, and responsibility.</p>
+        <div class="rc-tags"><span class="rctag">Generative AI</span><span class="rctag">Leadership Discourse</span><span class="rctag">NLP</span><span class="rctag">Text Analytics</span></div>
+      </div>
+      <div class="rc fade d2" style="border-style:dashed;position:relative">
+        <div style="position:absolute;top:1.1rem;right:1.1rem;font-family:var(--mono);font-size:0.6rem;font-weight:500;padding:3px 9px;border-radius:20px;background:var(--sage-100);color:var(--sage-700)">Ongoing — Stay Tuned</div>
+        <div class="rc-icon">🌐</div>
+        <h3>Societal Impact of Generative AI</h3>
+        <p>A new research direction exploring the broader societal consequences of generative AI — including effects on equity, labour, knowledge production, and social participation. Projects are underway. More to come soon.</p>
+        <div class="rc-tags"><span class="rctag">Generative AI</span><span class="rctag">Societal Impact</span><span class="rctag">Data Justice</span><span class="rctag">New Direction</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="container">
+    <div class="section-label">Publications</div>
+    <h2 class="section-title">Research <strong>Output</strong></h2>
+    <div class="section-bar"></div>
+
+    <div class="pub-section-title fade">Refereed Journal Articles</div>
+    <div class="pub-card fade d1">
+      <div class="pub-num">1.</div>
+      <div class="pub-body">
+        <div class="pub-citation"><strong>Zhou, S.</strong>, Loiacono, E. T., &amp; Kordzadeh, N. (2023). Smart cities for people with disabilities: A systematic literature review and future research directions. <em>European Journal of Information Systems</em>, 1–18. <a href="https://doi.org/10.1080/0960085X.2023.2297974" target="_blank" class="pub-doi">https://doi.org/10.1080/0960085X.2023.2297974</a></div>
+        <div class="pub-recognition">
+          <span class="pub-recog-label">Journal recognition:</span>
+          <span class="pbadge pb-top">AIS Senior Scholars' Premier List</span>
+          <span class="pbadge pb-top">CABS/AJG 4</span>
+          <span class="pbadge pb-top">ABDC A*</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-section-title fade">Papers under Review / Revision</div>
+    <div class="pub-card fade d1">
+      <div class="pub-num">2.</div>
+      <div class="pub-body">
+        <div class="pub-citation"><strong>Zhou, S.</strong>, Loiacono, E. T., Nerur, S., Kordzadeh, N., Iyer, L., Lingo, E. L., &amp; Randolph, A. B. Unraveling gender homophily and collaboration disparities among IS academics: A social network approach. <em>Major revision invited</em>, <em>Communications of the Association for Information Systems</em>.</div>
+        <div class="pub-recognition">
+          <span class="pub-recog-label">Journal recognition:</span>
+          <span class="pbadge pb-review">Official AIS Journal</span>
+          <span class="pbadge pb-review">ABDC A</span>
+          <span class="pbadge pb-review">Web of Science &amp; Scopus</span>
+        </div>
+      </div>
+    </div>
+    <div class="pub-card fade d1">
+      <div class="pub-num">3.</div>
+      <div class="pub-body">
+        <div class="pub-citation"><strong>Zhou, S.</strong>, Loiacono, E. T., Nerur, S., Kordzadeh, N., Iyer, L., Lingo, E. L., &amp; Randolph, A. B. Beyond gender homophily: How institutional ties and network position drive research impact in information systems. <em>Ready for submission</em>, targeted to <em>Journal of Management Information Systems</em>.</div>
+        <div class="pub-recognition">
+          <span class="pub-recog-label">Target journal recognition:</span>
+          <span class="pbadge pb-top">AIS Senior Scholars' Premier List</span>
+          <span class="pbadge pb-top">FT50</span>
+          <span class="pbadge pb-top">UTD24</span>
+          <span class="pbadge pb-top">CABS/AJG 4</span>
+          <span class="pbadge pb-top">ABDC A*</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-section-title fade">Working Papers</div>
+    <div class="pub-card fade d1">
+      <div class="pub-num">4.</div>
+      <div class="pub-body">
+        <div class="pub-citation"><strong>Zhou, S.</strong>, Loiacono, E., &amp; Gupta, B. AI thought leadership.</div>
+        <div class="pub-recognition"><span class="pbadge pb-working">Working Paper</span></div>
+      </div>
+    </div>
+    <div class="pub-card fade d1">
+      <div class="pub-num">5.</div>
+      <div class="pub-body">
+        <div class="pub-citation"><strong>Zhou, S.</strong>, Loiacono, E., Nerur, S., &amp; Iyer, L. Research focus using topic modeling.</div>
+        <div class="pub-recognition"><span class="pbadge pb-working">Working Paper</span></div>
+      </div>
+    </div>
+
+    <div class="pub-section-title fade">Conference Proceedings &amp; Presentations</div>
+    <div class="pub-conference-grid fade d1">
+      <div class="pub-conf-card">
+        <div class="pub-conf-title">Decision-Making in the Age of Generative AI: A Leadership Discourse Perspective</div>
+        <div class="pub-conf-venue">Pre-ICIS SIGDSA Symposium · Nashville, TN · 2025</div>
+        <div class="pub-conf-badge">SIGDSA 2025</div>
+      </div>
+      <div class="pub-conf-card">
+        <div class="pub-conf-title">AI Everywhere! A Meta-Analytic Review of AI Enabled Value Cocreation in Smart Cities</div>
+        <div class="pub-conf-venue">Pre-ICIS SIGDSA Symposium · Nashville, TN · 2025</div>
+        <div class="pub-conf-badge">SIGDSA 2025</div>
+      </div>
+      <div class="pub-conf-card">
+        <div class="pub-conf-title">Toward a Meta-Analytical Synthesis of Value Co-Creation in Inclusive Smart Cities</div>
+        <div class="pub-conf-venue">DSI Annual Conference · Orlando, Florida · 2025</div>
+        <div class="pub-conf-badge">DSI 2025</div>
+      </div>
+      <div class="pub-conf-card">
+        <div class="pub-conf-title">Authorship, Collaboration, and Influence of Women IS Scholars: Using Social Network Analysis</div>
+        <div class="pub-conf-venue">AMCIS 2022 Proceedings · Minneapolis, MN</div>
+        <div class="pub-conf-badge" style="background:#fdf8e8;color:#7a5c10;border:none">🏆 Top 25% ERF Paper</div>
+      </div>
+      <div class="pub-conf-card">
+        <div class="pub-conf-title">Analyzing Gender Differences in IS Research using Topic Modeling with Machine Learning</div>
+        <div class="pub-conf-venue">European Conference on Information Systems · 2023</div>
+        <div class="pub-conf-badge">ECIS 2023</div>
+      </div>
+      <div class="pub-conf-card">
+        <div class="pub-conf-title">A Review of Gender Research in IS: From Bibliometric Analysis to Future Research Directions</div>
+        <div class="pub-conf-venue">SAIS 2023 Proceedings · Hilton Head Island, SC</div>
+        <div class="pub-conf-badge">SAIS 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="teaching">
+  <div class="container">
+    <div class="section-label">Teaching</div>
+    <h2 class="section-title">Courses &amp; <strong>Modules</strong></h2>
+    <div class="section-bar"></div>
+    <div class="courses-grid">
+      <div class="cc fade">
+        <div class="cc-code">ISM 645</div>
+        <div class="cc-name">Principles of Predictive Analytics</div>
+        <div class="cc-level">Graduate Course · Instructor &amp; Course Designer</div>
+        <div class="cc-desc">Predictive modelling methods and analytics workflows. Designed and delivered in multiple formats. Covers regression, classification, and model evaluation in business contexts.</div>
+        <div class="cc-foot"><div class="cc-mode">In-person &amp; Online</div><div class="cc-sem">Fall 2024 · Fall 2025</div></div>
+      </div>
+      <div class="cc fade d1">
+        <div class="cc-code">ISM 210</div>
+        <div class="cc-name">Business Analytics</div>
+        <div class="cc-level">Undergraduate Course · Instructor</div>
+        <div class="cc-desc">Introduction to business analytics concepts, data interpretation, and decision support. Delivered asynchronously online, emphasising practical data skills for business students.</div>
+        <div class="cc-foot"><div class="cc-mode">Asynchronous Online</div><div class="cc-sem">Fall 2024</div></div>
+      </div>
+      <div class="cc fade d2">
+        <div class="cc-code">ISM 218</div>
+        <div class="cc-name">Database Systems</div>
+        <div class="cc-level">Undergraduate Course · Instructor</div>
+        <div class="cc-desc">Foundations of relational databases, SQL, data modelling, and database design. Taught across multiple semesters in both in-person and online formats.</div>
+        <div class="cc-foot"><div class="cc-mode">In-person &amp; Online</div><div class="cc-sem">Spring 2025 · Spring 2026</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cv">
+  <div class="container">
+    <div class="section-label">Curriculum Vitae</div>
+    <h2 class="section-title">Career &amp; <strong>Honours</strong></h2>
+    <div class="section-bar"></div>
+    <div class="cv-grid">
+      <div>
+        <div class="cv-group fade">
+          <div class="cv-group-head">Academic Positions</div>
+          <div class="cv-entry"><div class="cv-entry-wrap"><div><div class="cv-title">Assistant Professor of Information Systems</div><div class="cv-sub">UNCG, Bryan School of Business &amp; Economics</div></div><div class="cv-year">Aug 2025–Now</div></div></div>
+          <div class="cv-entry"><div class="cv-entry-wrap"><div><div class="cv-title">Visiting Assistant Professor of Information Systems</div><div class="cv-sub">UNCG, Bryan School of Business &amp; Economics</div></div><div class="cv-year">Aug 2024–Jul 2025</div></div></div>
+          <div class="cv-entry"><div class="cv-entry-wrap"><div><div class="cv-title">Graduate Research Assistant</div><div class="cv-sub">Worcester Polytechnic Institute, The Business School</div></div><div class="cv-year">Aug 2019–May 2024</div></div></div>
+        </div>
+        <div class="cv-group fade d1">
+          <div class="cv-group-head">Industry Experience</div>
+          <div class="cv-entry"><div class="cv-entry-wrap"><div><div class="cv-title">Associate Data Scientist, Advanced Analytics &amp; AI</div><div class="cv-sub">John Hancock | Manulife · Boston, MA</div></div><div class="cv-year">Jan–Jul 2024</div></div></div>
+        </div>
+        <div class="cv-group fade d2">
+          <div class="cv-group-head">Grants &amp; Funding</div>
+          <div class="cv-entry"><div class="cv-entry-wrap"><div><div class="cv-title">UNCG Scholars' Travel Fund</div><div class="cv-sub">Awarded: $750</div></div><div class="cv-year">2025</div></div></div>
+          <div class="cv-entry"><div class="cv-entry-wrap"><div><div class="cv-title">NSF ADVANCE Grant (ImPACT IT) — Research Assistant</div><div class="cv-sub">Increasing Participation &amp; Advancement of Women in IT</div></div><div class="cv-year">2020–2024</div></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="cv-group fade">
+          <div class="cv-group-head">Honors &amp; Awards</div>
+          <div class="honor-item">NSF ADVANCE ImPACT IT Research Assistant — National Science Foundation, 2020–2024</div>
+          <div class="honor-item"><em>MIS Quarterly</em> Reviewer Development Workshop — Selected Attendee, 2024</div>
+          <div class="honor-item">Best AMCIS 2022 — Top 25% ERF Paper Award, 2022</div>
+        </div>
+        <div class="cv-group fade d1">
+          <div class="cv-group-head">Review Activities</div>
+          <div class="cv-entry"><div class="cv-entry-wrap"><div><div class="cv-title">ECIS International Conference</div></div><div class="cv-year">2026</div></div></div>
+          <div class="cv-entry"><div class="cv-entry-wrap"><div><div class="cv-title">AIS Transactions on HCI</div></div><div class="cv-year">2025</div></div></div>
+          <div class="cv-entry"><div class="cv-entry-wrap"><div><div class="cv-title">Pre-ICIS SIGDSA · ACIS · ACIS</div></div><div class="cv-year">2025</div></div></div>
+          <div class="cv-entry"><div class="cv-entry-wrap"><div><div class="cv-title">HICSS</div></div><div class="cv-year">2022–2023</div></div></div>
+          <div class="cv-entry"><div class="cv-entry-wrap"><div><div class="cv-title">SAIS Conference</div></div><div class="cv-year">2023</div></div></div>
+          <div class="cv-entry"><div class="cv-entry-wrap"><div><div class="cv-title">Journal of Information Technology</div></div><div class="cv-year">2022</div></div></div>
+        </div>
+        <div class="cv-group fade d2">
+          <div class="cv-group-head">University Service</div>
+          <div class="cv-entry"><div class="cv-entry-wrap"><div><div class="cv-title">Student Relations Committee Member</div><div class="cv-sub">University of North Carolina at Greensboro</div></div><div class="cv-year">2024–Now</div></div></div>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="cv-download fade">📄 &nbsp;Download Full CV (PDF) →</a>
+  </div>
+</section>
+
+<section id="blog">
+  <div class="container">
+    <div class="section-label">Blog &amp; News</div>
+    <h2 class="section-title">Writing &amp; <strong>Updates</strong></h2>
+    <div class="section-bar"></div>
+    <div class="blog-grid">
+      <div class="blog-featured fade">
+        <div class="blog-featured-img">✦</div>
+        <div class="blog-featured-body">
+          <div class="blog-chip">Research Commentary</div>
+          <h3>Your Featured Blog Post Title Here</h3>
+          <div class="bmeta">Month Year &nbsp;·&nbsp; X min read</div>
+          <p>Add your featured blog post or research commentary here. Share insights from your research, reflections on the field, or thoughts on gender equity, AI, and inclusive technology.</p>
+          <a href="#" class="blog-readmore">Continue reading →</a>
+        </div>
+      </div>
+      <div class="blog-stack">
+        <a href="#" class="blog-item fade d1">
+          <div class="blog-chip">News</div>
+          <h3>Your news item headline here</h3>
+          <div class="bmeta">Month Year</div>
+        </a>
+        <a href="#" class="blog-item fade d2">
+          <div class="blog-chip">Talk</div>
+          <h3>Your upcoming talk or conference appearance</h3>
+          <div class="bmeta">Month Year</div>
+        </a>
+        <a href="#" class="blog-item fade d2">
+          <div class="blog-chip">Publication</div>
+          <h3>Your latest publication announcement</h3>
+          <div class="bmeta">Month Year</div>
+        </a>
+        <a href="#" class="blog-item fade d3">
+          <div class="blog-chip">Award</div>
+          <h3>Your award or recognition announcement</h3>
+          <div class="bmeta">Month Year</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Get in <strong>Touch</strong></h2>
+    <div class="section-bar"></div>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">I welcome inquiries about research collaboration, graduate advising, speaking engagements, and consulting on gender equity, inclusive technology, and data science. I aim to respond within a few working days.</p>
+        <div class="cinfo-row"><div class="cinfo-key">Email</div><div class="cinfo-val"><a href="mailto:s_zhou2@uncg.edu">s_zhou2@uncg.edu</a></div></div>
+        <div class="cinfo-row"><div class="cinfo-key">Phone</div><div class="cinfo-val">(336) 334-4853</div></div>
+        <div class="cinfo-row"><div class="cinfo-key">Address</div><div class="cinfo-val">Bryan School of Business &amp; Economics<br>University of North Carolina at Greensboro<br>Greensboro, NC 27412 USA</div></div>
+        <div class="cinfo-row">
+          <div class="cinfo-key">Profiles</div>
+          <div class="cinfo-val">
+            <div class="social-row">
+              <a href="https://scholar.google.com/citations?user=-22qbhkAAAAJ&hl=en&oi=ao" target="_blank" class="slink">Google Scholar</a>
+              <a href="#" class="slink">ORCID</a>
+              <a href="#" class="slink">ResearchGate</a>
+              <a href="#" class="slink">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="frow">
+          <div class="fg"><label class="fl">Name</label><input class="fi" type="text" placeholder="Your name"></div>
+          <div class="fg"><label class="fl">Email</label><input class="fi" type="email" placeholder="your@email.com"></div>
+        </div>
+        <div class="fg"><label class="fl">Subject</label><input class="fi" type="text" placeholder="Research collaboration / Speaking / ..."></div>
+        <div class="fg"><label class="fl">Message</label><textarea class="ft" placeholder="Tell me about your project or inquiry…"></textarea></div>
+        <button class="fsub">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Shimi Zhou</div>
+  <div class="footer-copy">© 2026 · Assistant Professor of Information Systems · UNCG · Built with GitHub Pages</div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }});
+}, {threshold: 0.07});
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
