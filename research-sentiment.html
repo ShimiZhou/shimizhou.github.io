@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unraveling Leadership Perceptions in Tech: A Sentiment Analysis Approach on Social Media — Shimi Zhou</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sage-50:#f2f6f0;--sage-100:#e0ead9;--sage-200:#c4d8ba;--sage-300:#9dbd90;
+  --sage-400:#6d9e62;--sage-500:#4a7a40;--sage-600:#375e2f;--sage-700:#264520;
+  --warm-50:#faf8f4;--warm-100:#f2ede4;
+  --stone:#8a8478;--stone2:#6b6560;
+  --ink:#1e2b1a;--ink2:#354a2f;--ink3:#5a6e52;
+  --white:#ffffff;
+  --border:#d4e0cc;--border2:#b8ccac;
+  --serif:'IBM Plex Serif',Georgia,serif;
+  --sans:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+  --r:10px;--r-sm:6px;--r-lg:16px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:20px;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--white);color:var(--ink);line-height:1.7}
+a{color:var(--sage-500);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 2rem}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:1rem;height:60px}
+.nav-brand{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);text-decoration:none;margin-right:auto}
+.nav-links a{font-family:var(--sans);font-size:0.82rem;color:var(--ink3);text-decoration:none;padding:6px 12px;border-radius:20px;transition:background 0.15s}
+.nav-links a:hover{background:var(--sage-50)}
+.nav-back{font-family:var(--mono);font-size:0.75rem;color:var(--stone);border:1px solid var(--border);padding:5px 14px;border-radius:20px;transition:all 0.15s}
+.nav-back:hover{background:var(--sage-50);color:var(--sage-600);border-color:var(--sage-300);text-decoration:none}
+
+/* ARTICLE */
+.article-wrap{max-width:720px;margin:0 auto;padding:3.5rem 2rem 5rem}
+.article-chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:0.68rem;color:var(--sage-600);background:var(--sage-50);border:1px solid var(--sage-200);padding:4px 12px;border-radius:20px;margin-bottom:1.25rem}
+h1.article-title{font-family:var(--serif);font-size:clamp(1.7rem,4vw,2.5rem);font-weight:300;color:var(--ink);line-height:1.2;margin-bottom:1rem}
+.article-meta{font-family:var(--mono);font-size:0.7rem;color:var(--stone);margin-bottom:0.75rem}
+.btags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+.btag{font-family:var(--mono);font-size:0.65rem;color:var(--sage-600);background:var(--sage-50);border:1px solid var(--sage-200);padding:3px 10px;border-radius:12px}
+h2.bsec-heading{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--ink);margin:2.5rem 0 0.75rem;padding-left:1rem;border-left:3px solid var(--sage-400)}
+.bsec-body{font-family:var(--serif);font-size:1rem;font-weight:300;color:var(--ink2);line-height:1.85;margin-bottom:1rem}
+.bsec-body p{margin-bottom:1rem}
+.bsec-body ul,.bsec-body ol{padding-left:1.5rem;margin-bottom:1rem}
+.bsec-body li{margin-bottom:0.5rem}
+.bsec-body strong{font-weight:600;color:var(--ink)}
+.bsec-body a{color:var(--sage-500);text-decoration:underline;text-underline-offset:3px}
+.callout{background:var(--sage-50);border:1px solid var(--sage-200);border-radius:10px;padding:1.25rem 1.5rem;margin:1.5rem 0;font-family:var(--sans);font-size:0.9rem;color:var(--ink2)}
+.callout strong{color:var(--sage-600)}
+
+/* FOOTER */
+footer{background:var(--sage-700);color:rgba(255,255,255,0.7);padding:2rem;text-align:center;font-family:var(--mono);font-size:0.7rem}
+footer a{color:rgba(255,255,255,0.85)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">Shimi Zhou</a>
+    <div class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#research">Research</a>
+      <a href="index.html#teaching">Teaching</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <a class="nav-back" href="index.html#blog">← All Posts</a>
+  </div>
+</nav>
+
+<div class="article-wrap">
+  <div class="article-chip">Aug 2023 &nbsp;·&nbsp; Shimi Zhou</div>
+  <h1 class="article-title">Unraveling Leadership Perceptions in Tech: A Sentiment Analysis Approach on Social Media</h1>
+  <div class="article-meta">Research Post &nbsp;·&nbsp; University of North Carolina at Greensboro</div>
+  <div class="btags"><span class="btag">NLP</span><span class="btag">Sentiment Analysis</span><span class="btag">Python</span><span class="btag">R</span><span class="btag">Gender Equity</span><span class="btag">Social Media</span></div>
+  <div class="bsec-body"><p>In the last decade, social media platforms have not only transformed the way we communicate but also how we perceive individuals in leadership roles. With the proliferation of "thought leaders" across these platforms — especially in the tech sector — an important question arises: how does gender influence the perception of tech thought leaders on social media?</p></div>
+<h2 class="bsec-heading">The Leadership Paradigm in the Digital Age</h2>
+<div class="bsec-body"><p>With the increasing influence of social media, the way we perceive leadership in technology is undergoing significant change. Despite advances in gender equality discourse, one can't help but wonder if traditional gender stereotypes still loom large over our digital judgments.</p></div>
+<h2 class="bsec-heading">Research Questions</h2>
+<div class="bsec-body"><ol><li>Are tech thought leaders perceived differently based on gender on social media?</li><li>What differences exist between tech thought leaders' language use on social media, and how does it impact leadership perceptions?</li><li>Does social media mitigate the leadership stereotypes associated with gender in technology?</li><li>What metrics are best used for investigating thought leadership styles across different platforms?</li></ol></div>
+<h2 class="bsec-heading">Methodological Blueprint</h2>
+<div class="bsec-body"><p>Harnessing the power of Python and R, coupled with advanced NLP techniques, I devised a systematic approach:</p><ul><li><strong>Data Collection:</strong> Leveraging APIs, I collected both structured and unstructured data from Twitter and YouTube, focusing on male versus female tech thought leaders.</li><li><strong>Data Processing:</strong> Through rigorous cleansing, I transformed raw data into analysis-ready form.</li><li><strong>Sentiment Analysis:</strong> Utilizing cutting-edge sentiment analysis tools, I deciphered public sentiment and discerned patterns influenced by gender.</li></ul></div>
+<h2 class="bsec-heading">Key Findings</h2>
+<div class="bsec-body"><p>The data painted a narrative that was both intriguing and reflective of deeper societal structures:</p><ul><li>Women tech thought leaders faced a distinct sentiment bias — receiving fewer positive comments and a higher volume of neutral remarks compared to their male counterparts.</li><li>Male tech thought leaders received <strong>10% more positive comments</strong> than their female counterparts.</li><li>Discussions about women often centered around personal attributes, while male thought leaders received a spotlight on their professional accomplishments.</li></ul></div>
+<h2 class="bsec-heading">Conclusion</h2>
+<div class="bsec-body"><p>Though this study dives into the digital realm, it unveils biases deeply entrenched in societal structures. In an era where technology champions innovation, such findings call for both reflection and actionable change. This exploration underscores the need for continuous dialogue and further research into addressing biases — even in spaces deemed progressive.</p><div class="callout"><strong>🔍 Ongoing Work:</strong> This research connects to our broader working paper on AI Thought Leadership, which is currently in preparation for journal submission. Stay tuned for updates.</div></div>
+
+</div>
+
+<footer>
+  <div>© 2026 · Shimi Zhou · Assistant Professor of IS · UNCG &nbsp;·&nbsp;
+  <a href="mailto:s_zhou2@uncg.edu">s_zhou2@uncg.edu</a> &nbsp;·&nbsp;
+  <a href="https://www.linkedin.com/in/shimi-zhou/" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
+  <a href="https://scholar.google.com/citations?user=-22qbhkAAAAJ" target="_blank">Google Scholar</a>
+  </div>
+</footer>
+</body>
+</html>
