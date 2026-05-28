@@ -604,21 +604,21 @@ footer{background:#1c2e18;padding:2.5rem;text-align:center}
           <h3>Bridging the Gap: Social Network Analysis Unveils Gender Equity Challenges in Academia</h3>
           <div class="bmeta">Featured Research &nbsp;·&nbsp; Social Network Analysis · Python · Statistics</div>
           <p>Authorship, Collaboration, and Influence of Women IS Scholars: A Social Network Analysis Approach. This work examines how gender shapes co-authorship, institutional ties, and career outcomes in the IS academic community.</p>
-          <a href="https://www.shimizhou.com/blog-3-1/blog-post-title-two-77xg7" target="_blank" class="blog-readmore">Read more →</a>
+          <a href="research-sna-gender.html" class="blog-readmore">Read more →</a>
         </div>
       </div>
       <div class="blog-stack">
-        <a href="https://www.shimizhou.com/blog-3-1/blog-post-title-one-p3dac" target="_blank" class="blog-item fade d1">
+        <a href="research-smart-cities.html" class="blog-item fade d1">
           <div class="blog-chip">Smart Cities</div>
           <h3>Inclusivity in the Era of Smart Cities: Building Connected Communities for Everyone</h3>
           <div class="bmeta">Quadruple Helix Model</div>
         </a>
-        <a href="https://www.shimizhou.com/blog-3-1/blog-post-title-three-8tan4" target="_blank" class="blog-item fade d2">
+        <a href="research-tbi.html" class="blog-item fade d2">
           <div class="blog-chip">Healthcare · UX</div>
           <h3>Deciphering Traumatic Brain Injury: How Data-Driven Decision Aids Can Make a Difference</h3>
           <div class="bmeta">HTML · JavaScript · UX Design</div>
         </a>
-        <a href="https://www.shimizhou.com/blog-3-1/blog-post-title-four-n48wf" target="_blank" class="blog-item fade d3">
+        <a href="research-sentiment.html" class="blog-item fade d3">
           <div class="blog-chip">NLP · Sentiment</div>
           <h3>Unraveling Leadership Perceptions in Tech: A Sentiment Analysis Approach on Social Media</h3>
           <div class="bmeta">Python · R · NLP · Sentiment Analysis</div>
@@ -698,68 +698,9 @@ function loadPhoto(event){
   reader.readAsDataURL(file);
 }
 
-// Color theme switcher
-function applyTheme(theme){
-  const root = document.documentElement;
-  const themes = {
-    sage: {
-      '--sage-50':'#f4f7f4','--sage-100':'#e6ede6','--sage-200':'#cddccd',
-      '--sage-300':'#a8c3a8','--sage-400':'#7da87d','--sage-500':'#578c57',
-      '--sage-600':'#3d6b3d','--ink':'#1a2e1a','--ink2':'#2d4a2d',
-      '--ink3':'#4a6f4a','--stone':'#7a907a','--parchment':'#fafbfa',
-      '--cream':'#f4f7f4'
-    },
-    slate: {
-      '--sage-50':'#f0f4f8','--sage-100':'#dde6f0','--sage-200':'#bed1e6',
-      '--sage-300':'#90b4d4','--sage-400':'#5c8eb8','--sage-500':'#3d6e98',
-      '--sage-600':'#2a5070','--ink':'#0f1e2d','--ink2':'#1e3447',
-      '--ink3':'#3a5570','--stone':'#6a8099','--parchment':'#f8fafc',
-      '--cream':'#f0f4f8'
-    },
-    rose: {
-      '--sage-50':'#fdf4f4','--sage-100':'#f8e4e4','--sage-200':'#f0c8c8',
-      '--sage-300':'#e4a0a0','--sage-400':'#d47070','--sage-500':'#b84e4e',
-      '--sage-600':'#8f3636','--ink':'#2d1616','--ink2':'#4a2222',
-      '--ink3':'#703636','--stone':'#906060','--parchment':'#fdf8f8',
-      '--cream':'#fdf4f4'
-    },
-    amber: {
-      '--sage-50':'#fdf8f0','--sage-100':'#faedda','--sage-200':'#f3d9b0',
-      '--sage-300':'#e9be7d','--sage-400':'#d49b45','--sage-500':'#b07a28',
-      '--sage-600':'#845c18','--ink':'#2a1e0a','--ink2':'#44310f',
-      '--ink3':'#6b4d1a','--stone':'#8a6e3a','--parchment':'#fdfaf5',
-      '--cream':'#fdf8f0'
-    },
-    violet: {
-      '--sage-50':'#f5f2fb','--sage-100':'#ece5f7','--sage-200':'#d8ccf0',
-      '--sage-300':'#b9a8e4','--sage-400':'#9478d0','--sage-500':'#7050b8',
-      '--sage-600':'#503890','--ink':'#1a1228','--ink2':'#2e1e47',
-      '--ink3':'#4a3270','--stone':'#6e5490','--parchment':'#faf8fd',
-      '--cream':'#f5f2fb'
-    }
-  };
-  const t = themes[theme];
-  if(!t) return;
-  Object.entries(t).forEach(([k,v]) => root.style.setProperty(k,v));
-  document.querySelectorAll('.theme-btn').forEach(b => b.classList.toggle('active', b.dataset.theme === theme));
-  localStorage.setItem('szTheme', theme);
-}
-
-// Restore saved theme
-const saved = localStorage.getItem('szTheme');
-applyTheme(saved || 'slate');
+applyTheme = function(){};
 </script>
 
-<!-- Color theme switcher widget -->
-<div id="themeSwitcher" style="position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
-  <div style="background:white;border:1.5px solid var(--sage-200);border-radius:24px;padding:8px 12px;display:flex;gap:8px;align-items:center;box-shadow:0 4px 16px rgba(0,0,0,0.1);">
-    <span style="font-family:var(--mono);font-size:0.65rem;color:var(--stone);margin-right:2px;">Theme</span>
-    <button class="theme-btn" data-theme="sage"  onclick="applyTheme('sage')"  title="Sage (current)" style="width:20px;height:20px;border-radius:50%;background:#578c57;border:2.5px solid white;outline:2px solid transparent;cursor:pointer;transition:transform 0.15s;" onmouseenter="this.style.transform='scale(1.2)'" onmouseleave="this.style.transform='scale(1)'"></button>
-    <button class="theme-btn active" data-theme="slate" onclick="applyTheme('slate')" title="Slate Blue"     style="width:20px;height:20px;border-radius:50%;background:#3d6e98;border:2.5px solid white;outline:2px solid #3d6e98;cursor:pointer;transition:transform 0.15s;" onmouseenter="this.style.transform='scale(1.2)'" onmouseleave="this.style.transform='scale(1)'"></button>
-    <button class="theme-btn"        data-theme="rose"  onclick="applyTheme('rose')"  title="Rose"           style="width:20px;height:20px;border-radius:50%;background:#b84e4e;border:2.5px solid white;outline:2px solid transparent;cursor:pointer;transition:transform 0.15s;" onmouseenter="this.style.transform='scale(1.2)'" onmouseleave="this.style.transform='scale(1)'"></button>
-    <button class="theme-btn"        data-theme="amber" onclick="applyTheme('amber')" title="Amber"          style="width:20px;height:20px;border-radius:50%;background:#b07a28;border:2.5px solid white;outline:2px solid transparent;cursor:pointer;transition:transform 0.15s;" onmouseenter="this.style.transform='scale(1.2)'" onmouseleave="this.style.transform='scale(1)'"></button>
-    <button class="theme-btn"        data-theme="violet" onclick="applyTheme('violet')" title="Violet"       style="width:20px;height:20px;border-radius:50%;background:#7050b8;border:2.5px solid white;outline:2px solid transparent;cursor:pointer;transition:transform 0.15s;" onmouseenter="this.style.transform='scale(1.2)'" onmouseleave="this.style.transform='scale(1)'"></button>
-  </div>
 </div>
 
 </body>
