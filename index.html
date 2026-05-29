@@ -256,6 +256,131 @@ footer{background:#1c2e18;padding:2.5rem;text-align:center}
 .award-title{font-family:var(--sans);font-size:0.92rem;font-weight:600;color:var(--ink);margin-bottom:0.25rem;line-height:1.3}
 .award-venue{font-family:var(--serif);font-size:0.82rem;font-weight:300;color:var(--ink3);line-height:1.5;margin-bottom:0.3rem}
 .award-year{font-family:var(--mono);font-size:0.68rem;color:var(--sage-500);font-weight:500}
+
+/* ── TABLET (≤900px) ──────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  html { font-size: 18px }
+  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.5rem 2.5rem }
+  .hero-content { order: 1 }
+  .hero-aside { order: 2; max-width: 380px; margin: 0 auto; width: 100% }
+  .about-wrap { grid-template-columns: 1fr; gap: 2rem }
+  .about-sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem }
+  .courses-grid { grid-template-columns: 1fr 1fr; gap: 1rem }
+  .cv-grid { grid-template-columns: 1fr; gap: 0 }
+  .blog-grid { grid-template-columns: 1fr; gap: 1.25rem }
+  .blog-featured { grid-template-columns: 1fr }
+  .awards-grid { grid-template-columns: 1fr 1fr }
+  .pub-conference-grid { grid-template-columns: 1fr }
+  .rc-grid { grid-template-columns: 1fr 1fr }
+}
+
+/* ── MOBILE (≤640px) ──────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  html { font-size: 16px }
+  section { padding: 2.5rem 0 }
+
+  /* Nav */
+  .nav-inner { padding: 0 1rem; height: 56px }
+  .nav-links { display: none }
+  .nav-name { font-size: 0.85rem }
+  .nav-avatar { width: 30px; height: 30px }
+  .nav-cta { display: none }
+
+  /* Hero */
+  .hero-inner { padding: 2rem 1rem 2rem; gap: 2rem }
+  .hero-name { font-size: 2rem }
+  .hero-zh { font-size: 1.6rem }
+  .hero-role { font-size: 0.85rem }
+  .hero-bio { font-size: 0.92rem }
+  .hero-tags { gap: 6px }
+  .htag { font-size: 0.62rem; padding: 4px 10px }
+  .hero-actions { flex-wrap: wrap; gap: 0.5rem }
+  .btn { font-size: 0.82rem; padding: 10px 18px }
+  .photo-card { max-width: 100% }
+
+  /* About */
+  .container { padding: 0 1rem }
+  .about-wrap { gap: 1.5rem }
+  .about-sidebar { grid-template-columns: 1fr; gap: 0.75rem }
+  .sidebar-card { padding: 1rem }
+
+  /* Research */
+  .rc-grid { grid-template-columns: 1fr }
+  .rc { padding: 1.25rem }
+
+  /* Publications */
+  .pub-card { flex-direction: column; gap: 0.25rem }
+  .pub-num { min-width: auto }
+  .pub-recognition { flex-wrap: wrap; gap: 4px }
+  .pbadge { font-size: 0.6rem; padding: 3px 8px }
+  .pub-conference-grid { grid-template-columns: 1fr }
+  .pub-conf-card { padding: 0.85rem }
+  .pub-filter { flex-wrap: wrap; gap: 6px }
+
+  /* Teaching */
+  .courses-grid { grid-template-columns: 1fr }
+  .cc { padding: 1.25rem }
+
+  /* Services */
+  .cv-grid { gap: 0 }
+  .cv-group { margin-bottom: 1.25rem }
+  .cv-entry-wrap { flex-wrap: wrap; gap: 4px }
+  .cv-year { font-size: 0.68rem }
+
+  /* Honors */
+  .awards-grid { grid-template-columns: 1fr }
+  .award-card { padding: 1rem }
+  .award-icon { font-size: 1.3rem }
+
+  /* Blog */
+  .blog-grid { grid-template-columns: 1fr }
+  .blog-featured { flex-direction: column }
+  .blog-featured-img { height: 160px }
+  .blog-featured-body { padding: 1.25rem }
+  .blog-stack { gap: 0.75rem }
+  .blog-item { padding: 1rem }
+
+  /* Contact */
+  .contact-grid { grid-template-columns: 1fr }
+  .cinfo-row { flex-direction: column; gap: 2px }
+  .cinfo-key { min-width: auto }
+
+  /* Section titles */
+  .section-title { font-size: 1.6rem }
+  .section-label { font-size: 0.6rem }
+}
+
+/* ── MOBILE NAV HAMBURGER ─────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .nav-mobile-toggle {
+    display: flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; cursor: pointer;
+    background: none; border: 1px solid var(--border);
+    border-radius: var(--r-sm); color: var(--ink3);
+  }
+  .nav-mobile-menu {
+    position: fixed; top: 56px; left: 0; right: 0;
+    background: white; border-bottom: 1px solid var(--border);
+    padding: 1rem; display: none; flex-direction: column; gap: 4px;
+    z-index: 999; box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+  .nav-mobile-menu.open { display: flex }
+  .nav-mobile-menu a {
+    font-family: var(--sans); font-size: 0.92rem; color: var(--ink2);
+    text-decoration: none; padding: 10px 14px; border-radius: var(--r-sm);
+    transition: background 0.15s; font-weight: 500;
+  }
+  .nav-mobile-menu a:hover { background: var(--sage-50); color: var(--sage-600) }
+  .nav-mobile-menu .nav-cta-mobile {
+    margin-top: 4px; background: var(--sage-500); color: white !important;
+    text-align: center; border-radius: 20px;
+  }
+}
+@media (min-width: 641px) {
+  .nav-mobile-toggle { display: none }
+  .nav-mobile-menu { display: none !important }
+}
+
 </style>
 </head>
 <body>
@@ -275,8 +400,22 @@ footer{background:#1c2e18;padding:2.5rem;text-align:center}
       <a href="#blog">Blogs & News</a>
       <a href="#contact" class="nav-cta">Contact</a>
     </div>
+    <!-- Mobile hamburger -->
+    <button class="nav-mobile-toggle" onclick="toggleMobileNav()" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
   </div>
 </nav>
+<!-- Mobile nav menu -->
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="#about"       onclick="closeMobileNav()">About</a>
+  <a href="#research"    onclick="closeMobileNav()">Research</a>
+  <a href="#teaching"    onclick="closeMobileNav()">Teaching</a>
+  <a href="#services"    onclick="closeMobileNav()">Services</a>
+  <a href="#honors"      onclick="closeMobileNav()">Honors</a>
+  <a href="#blog"        onclick="closeMobileNav()">Blogs & News</a>
+  <a href="#contact" class="nav-cta-mobile" onclick="closeMobileNav()">Contact</a>
+</div>
 
 <section id="hero">
   <div class="hero-inner">
@@ -765,5 +904,22 @@ applyTheme = function(){};
 
 </div>
 
+
+<script>
+function toggleMobileNav(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMobileNav(){
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+// Close menu on outside click
+document.addEventListener('click', function(e){
+  const menu = document.getElementById('mobileMenu');
+  const toggle = document.querySelector('.nav-mobile-toggle');
+  if(menu && toggle && !menu.contains(e.target) && !toggle.contains(e.target)){
+    menu.classList.remove('open');
+  }
+});
+</script>
 </body>
 </html>
