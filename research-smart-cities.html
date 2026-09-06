@@ -1,98 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Inclusivity in the Era of Smart Cities: Building Connected Communities for Everyone — Shimi Zhou</title>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Why smart cities must include people with disabilities, and how the Quadruple Helix model frames genuinely inclusive urban technology. A research post by Shimi Zhou." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
 <style>
-:root{
-  --sage-50:#f2f6f0;--sage-100:#e0ead9;--sage-200:#c4d8ba;--sage-300:#9dbd90;
-  --sage-400:#6d9e62;--sage-500:#4a7a40;--sage-600:#375e2f;--sage-700:#264520;
-  --warm-50:#faf8f4;--warm-100:#f2ede4;
-  --stone:#8a8478;--stone2:#6b6560;
-  --ink:#1e2b1a;--ink2:#354a2f;--ink3:#5a6e52;
-  --white:#ffffff;
-  --border:#d4e0cc;--border2:#b8ccac;
-  --serif:'IBM Plex Serif',Georgia,serif;
-  --sans:'IBM Plex Sans',system-ui,sans-serif;
-  --mono:'IBM Plex Mono',monospace;
-  --r:10px;--r-sm:6px;--r-lg:16px;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{font-size:20px;scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--white);color:var(--ink);line-height:1.7}
-a{color:var(--sage-500);text-decoration:none}
-a:hover{text-decoration:underline}
-
-/* NAV */
-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 2rem}
-.nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:1rem;height:60px}
-.nav-brand{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);text-decoration:none;margin-right:auto}
-.nav-links a{font-family:var(--sans);font-size:0.82rem;color:var(--ink3);text-decoration:none;padding:6px 12px;border-radius:20px;transition:background 0.15s}
-.nav-links a:hover{background:var(--sage-50)}
-.nav-back{font-family:var(--mono);font-size:0.75rem;color:var(--stone);border:1px solid var(--border);padding:5px 14px;border-radius:20px;transition:all 0.15s}
-.nav-back:hover{background:var(--sage-50);color:var(--sage-600);border-color:var(--sage-300);text-decoration:none}
-
-/* ARTICLE */
-.article-wrap{max-width:720px;margin:0 auto;padding:3.5rem 2rem 5rem}
-.article-chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:0.68rem;color:var(--sage-600);background:var(--sage-50);border:1px solid var(--sage-200);padding:4px 12px;border-radius:20px;margin-bottom:1.25rem}
-h1.article-title{font-family:var(--serif);font-size:clamp(1.7rem,4vw,2.5rem);font-weight:300;color:var(--ink);line-height:1.2;margin-bottom:1rem}
-.article-meta{font-family:var(--mono);font-size:0.7rem;color:var(--stone);margin-bottom:0.75rem}
-.btags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
-.btag{font-family:var(--mono);font-size:0.65rem;color:var(--sage-600);background:var(--sage-50);border:1px solid var(--sage-200);padding:3px 10px;border-radius:12px}
-h2.bsec-heading{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--ink);margin:2.5rem 0 0.75rem;padding-left:1rem;border-left:3px solid var(--sage-400)}
-.bsec-body{font-family:var(--serif);font-size:1rem;font-weight:300;color:var(--ink2);line-height:1.85;margin-bottom:1rem}
-.bsec-body p{margin-bottom:1rem}
-.bsec-body ul,.bsec-body ol{padding-left:1.5rem;margin-bottom:1rem}
-.bsec-body li{margin-bottom:0.5rem}
-.bsec-body strong{font-weight:600;color:var(--ink)}
-.bsec-body a{color:var(--sage-500);text-decoration:underline;text-underline-offset:3px}
-.callout{background:var(--sage-50);border:1px solid var(--sage-200);border-radius:10px;padding:1.25rem 1.5rem;margin:1.5rem 0;font-family:var(--sans);font-size:0.9rem;color:var(--ink2)}
-.callout strong{color:var(--sage-600)}
-
-/* FOOTER */
-footer{background:var(--sage-700);color:rgba(255,255,255,0.7);padding:2rem;text-align:center;font-family:var(--mono);font-size:0.7rem}
-footer a{color:rgba(255,255,255,0.85)}
+  .page-head.post h1 { font-size: clamp(1.9rem, 4vw, 2.9rem); line-height: 1.15; }
+  .post-meta { font-family: var(--ff-mono); font-size: .78rem; letter-spacing: .05em; color: var(--ink-3); margin: .3rem 0 0; }
+  .back-link { display: inline-flex; align-items: center; gap: .4rem; font-family: var(--ff-mono); font-size: .78rem; color: var(--ink-2); text-decoration: none; margin-bottom: 1rem; }
+  .back-link:hover { color: var(--accent-deep); }
+  .article { max-width: 750px; margin-inline: auto; }
+  .article .lead { font-size: 1.16rem; color: var(--ink-2); line-height: 1.7; margin: 0 0 1.6rem; }
+  .article h2 { font-family: var(--ff-display); font-weight: 600; font-size: 1.5rem; letter-spacing: -.01em; margin: 2.2rem 0 .8rem; }
+  .article p { color: var(--ink-2); line-height: 1.75; margin: 0 0 1.1rem; font-size: 1.03rem; }
+  .article strong { color: var(--ink); font-weight: 600; }
+  .article ul, .article ol { color: var(--ink-2); line-height: 1.7; margin: 0 0 1.2rem; padding-left: 1.25rem; }
+  .article li { margin: .45rem 0; }
+  .article a { color: var(--accent-deep); text-decoration: none; border-bottom: 1px solid var(--line-2); }
+  .article a:hover { border-color: var(--accent); }
+  .callout { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.15rem 1.3rem; margin: 1.7rem 0; font-size: .98rem; }
+  .callout p { margin: 0 0 .55rem; color: var(--ink-2); }
+  .callout p:last-child { margin: 0; }
+  .callout strong { color: var(--ink); }
 </style>
 </head>
 <body>
-<nav>
-  <div class="nav-inner">
-    <a class="nav-brand" href="index.html">Shimi Zhou</a>
-    <div class="nav-links">
-      <a href="index.html#about">About</a>
-      <a href="index.html#research">Research</a>
-      <a href="index.html#teaching">Teaching</a>
-      <a href="index.html#contact">Contact</a>
+
+<header class="nav" data-open="false">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Shimi Zhou — home">
+      <svg class="brand-mark" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+        <line x1="5" y1="7" x2="13" y2="13" stroke="#A87C2E" stroke-width="1.1"/><line x1="21" y1="6" x2="13" y2="13" stroke="#A87C2E" stroke-width="1.1"/><line x1="7" y1="20" x2="13" y2="13" stroke="#A87C2E" stroke-width="1.1"/><line x1="20" y1="20" x2="13" y2="13" stroke="#A87C2E" stroke-width="1.1"/>
+        <circle cx="13" cy="13" r="3" fill="#20263A"/><circle cx="5" cy="7" r="2" fill="#A87C2E"/><circle cx="21" cy="6" r="2" fill="#A87C2E"/><circle cx="7" cy="20" r="2" fill="#A87C2E"/><circle cx="20" cy="20" r="2" fill="#A87C2E"/>
+      </svg>
+      Shimi&nbsp;Zhou <small>UNCG</small>
+    </a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <div class="nav-menu">
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html#about">About</a>
+        <a href="research.html">Research</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="services.html">Services</a>
+        <a href="honors.html">Honors</a>
+        <a href="index.html#news">News</a>
+      </nav>
+      <a class="nav-cta" href="mailto:s_zhou2@uncg.edu">Get in touch</a>
     </div>
-    <a class="nav-back" href="index.html#blog">← All Posts</a>
   </div>
-</nav>
+</header>
 
-<div class="article-wrap">
-  <div class="article-chip">Aug 2023 &nbsp;·&nbsp; Shimi Zhou</div>
-  <h1 class="article-title">Inclusivity in the Era of Smart Cities: Building Connected Communities for Everyone</h1>
-  <div class="article-meta">Research Post &nbsp;·&nbsp; University of North Carolina at Greensboro</div>
-  <div class="btags"><span class="btag">Smart Cities</span><span class="btag">Accessibility</span><span class="btag">Quadruple Helix Model</span><span class="btag">Disabilities</span><span class="btag">EJIS</span></div>
-  <div class="bsec-body"><p>The vision of a smart city promises a future of connected communities, sustainable infrastructures, and improved quality of life for its citizens. Yet a glaring oversight looms large in this futuristic landscape — the inclusion and accessibility of people with disabilities.</p></div>
-<h2 class="bsec-heading">Understanding Smart Cities and the Role of Inclusivity</h2>
-<div class="bsec-body"><p>At their core, smart cities are not merely a collection of automated traffic lights or energy-efficient buildings. They are dynamic ecosystems powered by Internet of Things (IoT) devices, Information Communication Technology (ICT), and sophisticated data analytics. These interconnected systems collect and transmit data to cloud-based applications that analyze and manage urban information in real time.</p><p>However, while many of us effortlessly navigate this rapidly digitizing world via apps on our phones, a significant demographic is often left behind. People with disabilities, who could greatly benefit from these smart technologies, find themselves excluded due to inaccessible designs and implementations.</p></div>
-<h2 class="bsec-heading">The Quadruple Helix Model: A Holistic Approach</h2>
-<div class="bsec-body"><p>To understand the multifaceted challenges and opportunities within this realm, this study employs the <strong>Quadruple Helix Model</strong> — a conceptual framework encompassing four primary sectors:</p><ol><li><strong>Citizens</strong> — The heart of every city. Their needs, challenges, and interactions with urban tech shape the true essence of smart cities.</li><li><strong>Industry</strong> — The innovators who design, develop, and implement the smart technologies that power these cities.</li><li><strong>University</strong> — The knowledge hubs that drive research, development, and innovation in urban tech.</li><li><strong>Government</strong> — The regulators and facilitators, ensuring that technological advancements align with public welfare.</li></ol></div>
-<h2 class="bsec-heading">Core Research Questions</h2>
-<div class="bsec-body"><ul><li>How do people with disabilities engage in their cities?</li><li>What issues do they encounter when engaging in city activities?</li><li>How do city governments engage citizens with disabilities in the development and procurement of smart technologies?</li><li>How could smart technologies be developed to better consider the needs of people with disabilities?</li></ul></div>
-<h2 class="bsec-heading">Publication & Impact</h2>
-<div class="bsec-body"><div class="callout"><strong>📄 Published in European Journal of Information Systems (EJIS):</strong> This research has been published in one of the highest-ranked IS journals — part of the prestigious "Basket of Eight." <a href="https://www.tandfonline.com/doi/full/10.1080/0960085X.2023.2297974" target="_blank">Read the full paper: Smart Cities for People with Disabilities →</a></div><p>The findings hold important implications for city planners, technology designers, and policymakers committed to building truly inclusive digital urban environments.</p></div>
+<section class="page-head post">
+  <canvas data-net="head" aria-hidden="true"></canvas>
+  <div class="container">
+    <a class="back-link" href="index.html#news">← All posts</a>
+    <p class="eyebrow node">Smart Cities · Accessibility</p>
+    <h1><em>Inclusivity</em> in the Era of Smart Cities: Building Connected Communities for Everyone</h1>
+    <p class="post-meta">Research Post · Aug 2023 · Shimi Zhou · UNCG</p>
+    <div class="chips" style="margin-top:.95rem">
+      <span class="chip">Smart Cities</span><span class="chip">Accessibility</span><span class="chip">Quadruple Helix Model</span><span class="chip">Disabilities</span><span class="chip gold">EJIS</span>
+    </div>
+  </div>
+</section>
 
-</div>
+<section class="section">
+  <div class="container">
+    <article class="article">
+      <p class="lead">The vision of a smart city promises a future of connected communities, sustainable infrastructures, and improved quality of life for its citizens. Yet a glaring oversight looms large in this futuristic landscape: the inclusion and accessibility of people with disabilities.</p>
 
-<footer>
-  <div>© 2026 · Shimi Zhou · Assistant Professor of IS · UNCG &nbsp;·&nbsp;
-  <a href="mailto:s_zhou2@uncg.edu">s_zhou2@uncg.edu</a> &nbsp;·&nbsp;
-  <a href="https://www.linkedin.com/in/shimi-zhou/" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
-  <a href="https://scholar.google.com/citations?user=-22qbhkAAAAJ" target="_blank">Google Scholar</a>
+      <h2>Understanding Smart Cities and the Role of Inclusivity</h2>
+      <p>At their core, smart cities are not merely a collection of automated traffic lights or energy-efficient buildings. They are dynamic ecosystems powered by Internet of Things (IoT) devices, Information Communication Technology (ICT), and sophisticated data analytics. These interconnected systems collect and transmit data to cloud-based applications that analyze and manage urban information in real time.</p>
+      <p>However, while many of us effortlessly navigate this rapidly digitizing world via apps on our phones, a significant demographic is often left behind. People with disabilities, who could greatly benefit from these smart technologies, find themselves excluded due to inaccessible designs and implementations.</p>
+
+      <h2>The Quadruple Helix Model: A Holistic Approach</h2>
+      <p>To understand the multifaceted challenges and opportunities within this realm, the study employs the <strong>Quadruple Helix Model</strong>, a conceptual framework encompassing four primary sectors:</p>
+      <ol>
+        <li><strong>Citizens.</strong> The heart of every city. Their needs, challenges, and interactions with urban technology shape the true essence of smart cities.</li>
+        <li><strong>Industry.</strong> The innovators who design, develop, and implement the smart technologies that power these cities.</li>
+        <li><strong>University.</strong> The knowledge hubs that drive research, development, and innovation in urban technology.</li>
+        <li><strong>Government.</strong> The regulators and facilitators, ensuring that technological advancements align with public welfare.</li>
+      </ol>
+
+      <h2>Core Research Questions</h2>
+      <ul>
+        <li>How do people with disabilities engage in their cities?</li>
+        <li>What issues do they encounter when engaging in city activities?</li>
+        <li>How do city governments engage citizens with disabilities in the development and procurement of smart technologies?</li>
+        <li>How could smart technologies be developed to better consider the needs of people with disabilities?</li>
+      </ul>
+
+      <h2>Publication and Impact</h2>
+      <p>The findings hold important implications for city planners, technology designers, and policymakers committed to building truly inclusive digital urban environments.</p>
+      <div class="callout">
+        <p><strong>📄 Published in the European Journal of Information Systems (EJIS):</strong> This research appears in one of the highest-ranked IS journals, part of the AIS "Basket of Eight." <a href="https://www.tandfonline.com/doi/full/10.1080/0960085X.2023.2297974" target="_blank" rel="noopener">Read the full paper: Smart Cities for People with Disabilities →</a></p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer class="footer">
+  <canvas class="foot-net" data-net="footer" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h2>Get in touch</h2>
+        <p class="foot-lead">I welcome inquiries about research collaboration, graduate advising, and speaking engagements.</p>
+        <a class="btn btn-gold" href="mailto:s_zhou2@uncg.edu">s_zhou2@uncg.edu</a>
+      </div>
+      <div class="col">
+        <h4>Explore</h4>
+        <a href="index.html#about">About</a>
+        <a href="research.html">Research</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="honors.html">Honors</a>
+      </div>
+      <div class="col">
+        <h4>Elsewhere</h4>
+        <a href="https://scholar.google.com/citations?user=-22qbhkAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://www.linkedin.com/in/shimi-zhou/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/ShimiZhou" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://orcid.org/0000-0001-6086-1185" target="_blank" rel="noopener">ORCID</a>
+        <address style="margin-top:1rem;">Bryan School of Business &amp; Economics<br/>University of North Carolina at Greensboro<br/>Greensboro, NC 27412 USA</address>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 Shimi Zhou · Assistant Professor of Information Systems · UNCG</span>
+      <span>Built with GitHub Pages</span>
+    </div>
   </div>
 </footer>
+
+<script src="app.js"></script>
 </body>
 </html>
